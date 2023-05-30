@@ -2,7 +2,7 @@
 % data and optimised to fit data appropriately.
 
 % Shape Factor (C)
-c = 1.5511;
+C = 1.5511;
 
 % Stiffness Factor (B)
 B = 0.1453;
