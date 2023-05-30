@@ -137,3 +137,15 @@ A tyre interaction with the road happens over a "contact patch" - the tyre behav
 
 - CD-Tyre: Physical tyre model with different models for belt, sidewall and tread, includes thermal effects and high-frequency accuracy. Directed towards handling, ride comfort and durability applications.
 
+## Tyre Characterisation
+
+- Lateral dynamic testing can be conducted across a range of side slip angles for different camber and vertical force scenarios using either test trailers or flat track methods.
+
+- Longitudinal dynamics testing can be conducted across a range of slip ratios for different camber and vertical force scenarios using either test trailers or flat track methods.
+
+- Test trailers adjust these testing paramters and measure the tyre effects when being operated around a test facility on a physical surface. This can be beneficial as the surface mimics that of the end product application, but lacks reproducability as a result of other environmental effects.
+
+- Flat track testing uses a machine to mount the axle and tyre which is rolling along a treadmill. The machine can adjust camber and vertical forces for different slip ratios or angles, and is a highly reproducable test method, however, it lacks the real-world application of a test trailer method.
+
+- Measured data is fitted to a tyre model most appropriate, and optimisation software is used to obtain a mathematical solution for each of the model parameters.
+
