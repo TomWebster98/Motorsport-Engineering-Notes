@@ -118,7 +118,7 @@ A tyre interaction with the road happens over a "contact patch" - the tyre behav
 
     - This tyre shift introduces a defined translation of the curve to adjust the model in-line with vehicle and tyre conditions as necessary.
 
-![Pacejka Model](images/Pacejka-Model-Figure.png)
+![Pacejka Model](./Images/Pacejka-Model-Figure.png)
 
 - This model can be used to fit real data, in turn, determining the various parameters defined above.
 
