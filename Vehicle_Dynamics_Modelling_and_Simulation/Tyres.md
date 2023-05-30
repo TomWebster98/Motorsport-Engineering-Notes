@@ -94,3 +94,36 @@ A tyre interaction with the road happens over a "contact patch" - the tyre behav
 
 ## Pacejka Tyre Model
 
+- The Pacejka model is a semi-empirical tyre model, also known as Magic Formula, given as: $$y(x) = D \cdot sin(C \cdot atan[B \cdot x - E \cdot (B \cdot x - atan(B \cdot x))])$$
+
+    - $y(x)$ = Output, $F_x$ or $F_y$.
+    - $x$ = Input, $\kappa$ or $\alpha$.
+    - B = Stiffness Factor.
+    - C = Shape Factor.
+    - D = Peake Value.
+    - E = Curvature Factor.
+
+- From this model, we can determine key tyre performance parameters in the following ways:
+
+    - Cornering Stiffness: $C_\alpha = atan(BCD)$.
+    - Horizontal Asymptote: $y_a = D \cdot sin(C \cdot \frac{\pi}{2})$.
+    - Peak Value $(x_m,y_m)$:
+        - $y_m = D$.
+        - $B \cdot (1-E) \cdot x_m + E \cdot atan(B \cdot x_m) = tan(\frac{\pi}{2C})$.
+    - Maximum Value (load dependent):
+        - $D = (a_1 \cdot F_z + a_2) \cdot F_z$
+        - $a_1 < 0$
+
+- In reality, it would be expected that tyres are not perfecetly symmetric, and thus may not cross the origin (0,0) point as shown in the graph below. We might therefore want to indtroduce a tyre shift complexity to the model in the following way: $$y(x) = D \cdot sin(C \cdot atan[B \cdot (x+S_H) - E \cdot (B \cdot (x+S_H) - atan(B \cdot (x+S_H)))]) + S_V$$
+
+    - This tyre shift introduces a defined translation of the curve to adjust the model in-line with vehicle and tyre conditions as necessary.
+
+![Pacejka Model](images/Pacejka-Model-Figure.png)
+
+- This model can be used to fit real data, in turn, determining the various parameters defined above.
+
+1. Set the peak value: $D = y_m$.
+2. Calculate the shape factor: $C = 2 - \frac{2}{\pi} \cdot asin(\frac{y_a}{D})$.
+3. Obtain the stiffness factor: $B = \frac{C_\alpha}{C \cdot D}$.
+4. Determine the curvature factor: $E = \frac{tan(\frac{\pi}{2C}) - B \cdot x_m}{atan(B \cdot x_m) - B \cdot x_m}$
+
