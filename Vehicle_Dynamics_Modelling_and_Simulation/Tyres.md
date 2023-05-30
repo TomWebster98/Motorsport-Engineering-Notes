@@ -54,9 +54,26 @@ A tyre interaction with the road happens over a "contact patch" - the tyre behav
 
 ## Longitudinal Dynamics
 
+- Tyres generate longitudinal forces dependant on the slip ratio $\kappa$.
 
+- The longitudinal force experiences a maximum, or peak, for a given slip ratio, typically between 10% and 20%, before then seeing a drop off as the tyre/wheel is spins or slides.
+
+- The relationship between longitudinal force and slip ratio varies for different operational scenarios, namely, between traction and braking scenarios. Driving assistance control systems and software, such as traction control and anti-lock braking systems, are implemented as a means of ensuring the vehicle remains in the peak traction or braking performance window - that is, to ensure peak longitudinal force for each operational scenario.
+
+- We define the slip ratio to be the ratio between the difference in theoretical wheel velocity and real wheel velocity, and the real wheel velocity: $$\kappa = \frac{\Omega \cdot r - v_x}{v_x}$$
+
+    - With: $\Omega$ = Wheel angular velocity.
+            r = Effective tyre radius.
+            $v_x$ = Wheel centre lognitudinal speed.
+
+- The effective tyre radius varies depending on the vertical load and the rolling condition!
+
+- For a braking scenario: $\kappa < 0$ since $\Omega \cdot r < v_x$.
+- For a driving scenario: $\kappa > 0$ since $\Omega \cdot r > v_x$.
 
 ## Combined Forces
+
+
 
 ## Linear Tyre Model
 
