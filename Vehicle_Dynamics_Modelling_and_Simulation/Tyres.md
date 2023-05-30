@@ -1,4 +1,4 @@
-# How do tyres work?
+# How Do Tyres Work?
 
 ## Overview
 
@@ -80,8 +80,17 @@ A tyre interaction with the road happens over a "contact patch" - the tyre behav
 - Using a g-g diagram, measurements of lateral and longitudinal forces on a vehicle around a circuit can be observed, with lateral acceleration (g) on the x-axis, and longitudinal acceleration on the y-axis.
     - In this type of plot, it is common to observe a limitation in the negative region of longitudinal accelaration, since this is typically limited more so by the powertrain than the tyre. Thus, force experienced under braking is typically greater in magnitude than that during a "driving scenario."
 
+# Tyre Models
+
 ## Linear Tyre Model
 
+- The most simple tyre model, whereby the magnitude of lateral force increases linearly with an increasing side slip angle $\alpha$.
 
+- The gradient for this linear relationship is described as the cornering stiffness $C_\alpha$.
+
+- This model does not capture the non-linearities of a tyre, and therefore is limited. In the case of modelling small slip angles, this model may be applied, recalling the linear/elastic phase discussed in the [Lateral Dynamics](#Lateral-Dynamics) section.
+
+- Depending on sign conventions, the cornering stiffness $C_\alpha$ can be negative or positive.
 
 ## Pacejka Tyre Model
+
