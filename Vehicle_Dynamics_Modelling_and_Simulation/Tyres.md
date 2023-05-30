@@ -127,3 +127,13 @@ A tyre interaction with the road happens over a "contact patch" - the tyre behav
 3. Obtain the stiffness factor: $B = \frac{C_\alpha}{C \cdot D}$.
 4. Determine the curvature factor: $E = \frac{tan(\frac{\pi}{2C}) - B \cdot x_m}{atan(B \cdot x_m) - B \cdot x_m}$
 
+## Other Tyre Models
+
+- MF-Tyre: Implementation of the Magic Formula with additional parameters relating to camber angle, pressure and more. Fitted from real tyre data, and directed towards vehicle handling applications.
+
+- MF-Swift: High frequency extension to the MF-Tyre model with the addition of a 3D tyre envelope and tyre belt, directed towards ride comfort, road load and vibration analysis applications.
+
+- F-Tire: Physical tyre model (no longer semi-empirical) with flexible tyre structure for high-frequency excitation. Directed towards ride comfort, road load and vibration analysis in the automotive industry.
+
+- CD-Tyre: Physical tyre model with different models for belt, sidewall and tread, includes thermal effects and high-frequency accuracy. Directed towards handling, ride comfort and durability applications.
+
