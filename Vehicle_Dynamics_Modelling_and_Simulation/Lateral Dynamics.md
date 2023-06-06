@@ -102,3 +102,26 @@ $$ F_{yf}(\frac{\dot{y} + r \cdot l_f}{V} - \delta) \cdot \cos(\delta) \cdot l_f
 
 ### Trajectory
 
+- Definition of the vehicle path, using global X,Y coordinates (not to be confused with the local x,y coordinate system of the vehicle itself).
+
+- The relationship between these coordinate systems is given by trigonometric identities, assuming the angle $\Psi$ between the x and X axes (and therefore the y and Y axes also). 
+$$X = x \cdot \cos(\Psi) - y \cdot \sin(\Psi)$$
+$$Y = x \cdot \sin(\Psi) + y \cdot \cos(\Psi)$$
+
+- With x, y and $\Psi$:
+    - $x = \int_0^t V \cdot dt = V \cdot t$
+    - $y = \int_0^t \dot{y} \cdot dt$
+    - $\Psi = \int_0^t r \cdot dt$
+
+### Linearisation (Derivatives Approach)
+
+- Linear tyre model: Tyre force proportional to the slip angle. $F_y = C_\alpha \cdot \alpha, (C_\alpha < 0)$
+
+- Small angle approximation: $\cos(\delta) = 1$
+
+- Vehicle sideslip considered: $\beta = \arctan(\frac{v_y}{v_x} \approx \frac{v_y}{V})$
+
+- Lateral force equilibrium: $$ (C_{\alpha f} + C_{\alpha r}) \cdot \beta + (C_{\alpha f} \cdot l_f - C_{\alpha r} \cdot l_r) \cdot \frac{r}{V} - C_{\alpha f} \cdot \delta = m \cdot V \cdot (r + \dot{\beta}) $$
+
+- Momentum equilibrium: $$ (C_{\alpha f} \cdot l_f - C_{\alpha r} \cdot l_r) \cdot \beta + (C_{\alpha f} \cdot l_{f}^2 + C_{\alpha r} \cdot l_{r}^2) \cdot \frac{r}{V} - C_{\alpha f} \cdot l_f \cdot \delta = I \cdot \dot{r} $$
+
