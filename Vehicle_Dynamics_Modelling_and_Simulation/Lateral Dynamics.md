@@ -73,7 +73,7 @@ Where $w$ is the "track" of the vehicle, and $R_r$ is the distance from the pivo
 
 - Note also that $v_{yf} = v_y + r \cdot l_f$
 
-- Therefore: $$\alpha _f = \frac{v_y + r \cdot l_f}{V} - \delta$$
+- Therefore: $$\alpha_{f} = \frac{v_y + r \cdot l_f}{V} - \delta$$
 
 - Rear slip angle is given by $$\alpha_{r} = \arctan(\frac{v_{yr}}{v_x}) \approx \frac{v_{yr}}{V}$$
 
