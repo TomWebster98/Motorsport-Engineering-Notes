@@ -49,8 +49,11 @@ Where $w$ is the "track" of the vehicle, and $R_r$ is the distance from the pivo
 
     - Momentum equilibrium: $$F_{yf} \cdot \cos(\delta) \cdot l_f - F_{yr} \cdot l_r = I \cdot \dot{r}$$
 
-    - Recall r is the yaw rate (rotation about the z-axis). 
-    - Note $F_y$ is a function of slip angle and normal force for front axle $F_{yf}(\alpha _f, N_f)$ and rear axle $F_{yr}(\alpha _r, N_r)$.
+    - Recall r is the yaw rate (rotation about the z-axis).
+    
+    - Note $F_y$ is a function of slip angle and normal force for front and rear axles:
+        - $F_{yf} (\alpha _f, N_f)$ 
+        - $F_{yr} (\alpha _r, N_r)$.
 
 ### Lateral Acceleration
 
@@ -66,17 +69,17 @@ Where $w$ is the "track" of the vehicle, and $R_r$ is the distance from the pivo
 
 - Once again we will utilise the small angle approximation. $\tan(\theta) \approx \theta$.
 
-- Front slip angle is given by $$\alpha _f = \arctan(\frac{v_{yf}}{v_x}) - \delta \approx \frac{v_{yf}}{V} - \delta$$
+- Front slip angle is given by $$\alpha_{f} = \arctan(\frac{v_{yf}}{v_x}) - \delta \approx \frac{v_{yf}}{V} - \delta$$
 
 - Note also that $v_{yf} = v_y + r \cdot l_f$
 
 - Therefore: $$\alpha _f = \frac{v_y + r \cdot l_f}{V} - \delta$$
 
-- Rear slip angle is given by $$\alpha _r = \arctan(\frac{v_{yr}}{v_x}) \approx \frac{v_{yr}}{V}$$
+- Rear slip angle is given by $$\alpha_{r} = \arctan(\frac{v_{yr}}{v_x}) \approx \frac{v_{yr}}{V}$$
 
 - Note also that $v_{yr} = v_y - r \cdot l_r$
 
-- Therefore: $$\alpha _r = \frac{v_y - r \cdot l_r}{V} - \delta$$
+- Therefore: $$\alpha_{r} = \frac{v_y - r \cdot l_r}{V} - \delta$$
 
 - Recall the velocity in the y direction can also be expressed as $\dot{y}$.
 
