@@ -45,9 +45,9 @@ Where $w$ is the "track" of the vehicle, and $R_r$ is the distance from the pivo
 
 - By applying lateral force equilibrium and momentum equilibrium we can deduce the following characteristic equations:
 
-    - Lateral force equilibrium: $$ F_{yf} \cdot \cos(\delta) + F_{yr} = m \cdot a_y $$
+    - Lateral force equilibrium: $$F_{yf} \cdot \cos(\delta) + F_{yr} = m \cdot a_y$$
 
-    - Momentum equilibrium: $$ F_{yf} \cdot \cos(\delta) \cdot l_f - F_{yr} \cdot l_r = I \cdot \dot{r} $$
+    - Momentum equilibrium: $$F_{yf} \cdot \cos(\delta) \cdot l_f - F_{yr} \cdot l_r = I \cdot \dot{r}$$
 
     - Recall r is the yaw rate (rotation about the z-axis). 
     - Note $F_y$ is a function of slip angle and normal force for front axle $F_{yf}(\alpha _f, N_f)$ and rear axle $F_{yr}(\alpha _r, N_r)$.
@@ -60,37 +60,37 @@ Where $w$ is the "track" of the vehicle, and $R_r$ is the distance from the pivo
 
 - For pure vehicle sliding we have $$a_{y,sliding} = \ddot{y}$$
 
-- Therefore, for total acceleration: $$ a_y = a_{y,rotation} + a_{y,sliding} $$ $$ a_y = r \cdot V + \ddot{y} $$
+- Therefore, for total acceleration: $$a_y = a_{y,rotation} + a_{y,sliding}$$ $$a_y = r \cdot V + \ddot{y}$$
 
 ### Slip Angles
 
 - Once again we will utilise the small angle approximation. $\tan(\theta) \approx \theta$.
 
-- Front slip angle is given by $$ \alpha _f = \arctan(\frac{v_{yf}}{v_x}) - \delta \approx \frac{v_{yf}}{V} - \delta $$
+- Front slip angle is given by $$\alpha _f = \arctan(\frac{v_{yf}}{v_x}) - \delta \approx \frac{v_{yf}}{V} - \delta$$
 
-- Note also that $ v_{yf} = v_y + r \cdot l_f $
+- Note also that $v_{yf} = v_y + r \cdot l_f$
 
-- Therefore: $$ \alpha _f = \frac{v_y + r \cdot l_f}{V} - \delta $$
+- Therefore: $$\alpha _f = \frac{v_y + r \cdot l_f}{V} - \delta$$
 
-- Rear slip angle is given by $$ \alpha _r = \arctan(\frac{v_{yr}}{v_x}) \approx \frac{v_{yr}}{V} $$
+- Rear slip angle is given by $$\alpha _r = \arctan(\frac{v_{yr}}{v_x}) \approx \frac{v_{yr}}{V}$$
 
-- Note also that $ v_{yr} = v_y - r \cdot l_r $
+- Note also that $v_{yr} = v_y - r \cdot l_r$
 
-- Therefore: $$ \alpha _r = \frac{v_y - r \cdot l_r}{V} - \delta $$
+- Therefore: $$\alpha _r = \frac{v_y - r \cdot l_r}{V} - \delta$$
 
 - Recall the velocity in the y direction can also be expressed as $\dot{y}$.
 
-- The vehicle slip angle at the centre of gravity can also be defined as $$ \beta = \arctan(\frac{v_{y}}{v_x}) \approx \frac{v_{y}}{V} $$
+- The vehicle slip angle at the centre of gravity can also be defined as $$\beta = \arctan(\frac{v_{y}}{v_x}) \approx \frac{v_{y}}{V}$$
 
 ### Bicycle Model Equations
 
 - The lateral force equilibrium equation therefore becomes:
 
-$$ F_{yf}(\frac{\dot{y} + r \cdot l_f}{V} - \delta) \cdot \cos(\delta) + F_{yr}(\frac{\dot{y} - r \cdot l_r}{V} - \delta) = m \cdot (r \cdot V + \ddot{y}) $$
+$$F_{yf}(\frac{\dot{y} + r \cdot l_f}{V} - \delta) \cdot \cos(\delta) + F_{yr}(\frac{\dot{y} - r \cdot l_r}{V} - \delta) = m \cdot (r \cdot V + \ddot{y})$$
 
 - The momentum equilibrium equation therefore becomes:
 
-$$ F_{yf}(\frac{\dot{y} + r \cdot l_f}{V} - \delta) \cdot \cos(\delta) \cdot l_f - F_{yr}(\frac{\dot{y} - r \cdot l_r}{V} - \delta) \cdot l_r = I \cdot \dot{r} $$
+$$F_{yf}(\frac{\dot{y} + r \cdot l_f}{V} - \delta) \cdot \cos(\delta) \cdot l_f - F_{yr}(\frac{\dot{y} - r \cdot l_r}{V} - \delta) \cdot l_r = I \cdot \dot{r}$$
 
 - Inputs:
     - Vehicle velocity: V
@@ -121,7 +121,32 @@ $$Y = x \cdot \sin(\Psi) + y \cdot \cos(\Psi)$$
 
 - Vehicle sideslip considered: $\beta = \arctan(\frac{v_y}{v_x} \approx \frac{v_y}{V})$
 
-- Lateral force equilibrium: $$ (C_{\alpha f} + C_{\alpha r}) \cdot \beta + (C_{\alpha f} \cdot l_f - C_{\alpha r} \cdot l_r) \cdot \frac{r}{V} - C_{\alpha f} \cdot \delta = m \cdot V \cdot (r + \dot{\beta}) $$
+- Lateral force equilibrium: $$(C_{\alpha f} + C_{\alpha r}) \cdot \beta + (C_{\alpha f} \cdot l_f - C_{\alpha r} \cdot l_r) \cdot \frac{r}{V} - C_{\alpha f} \cdot \delta = m \cdot V \cdot (r + \dot{\beta})$$
 
-- Momentum equilibrium: $$ (C_{\alpha f} \cdot l_f - C_{\alpha r} \cdot l_r) \cdot \beta + (C_{\alpha f} \cdot l_{f}^2 + C_{\alpha r} \cdot l_{r}^2) \cdot \frac{r}{V} - C_{\alpha f} \cdot l_f \cdot \delta = I \cdot \dot{r} $$
+- Momentum equilibrium: $$(C_{\alpha f} \cdot l_f - C_{\alpha r} \cdot l_r) \cdot \beta + (C_{\alpha f} \cdot l_{f}^2 + C_{\alpha r} \cdot l_{r}^2) \cdot \frac{r}{V} - C_{\alpha f} \cdot l_f \cdot \delta = I \cdot \dot{r}$$
 
+## Steady State Response
+
+- Test to understand the vehicle response and grip level and the understeer balance.
+
+- Vehicle in steady state cornering conditions: "Slow" steering input and/or velocity change so the vehicle goes from one equilirbium position to another.
+
+- Tests:
+    - Constant radius test (closed loop) with increasing speed and therefore steering input to maintain the constant radius. (Requires a driver model to simulate).
+    - Constant speed test (open loop) with steady increase ramped steering input.
+
+### Understeer & Oversteer
+
+- Understeer can be seen when a vehicle is losing grip at the front axle before the rear axle, resulting in the driver demanding more steering input to achieve the desired rotation/cornering performance of the car.
+
+- Oversteer can be seen when a vehicle is losing grip at the rear axle before the front axle, resulting in the driver demanding less steering input or countersteering with opposite lock to achieve the desired cornering performance.
+
+- In higher speed cornering, the front and rear tyres begin to slip, and the centre of rotation, or pivot point shifts.
+
+- The vehicle steer angle is related to the front and rear slip angles: $$\delta \approx \frac{L}{R} + (\alpha _f - \alpha _r)$$
+
+![Vehicle Steer Angle](./Images/Steer-angle-forces.png)
+
+- The steering input from a driver is a combination of Ackermann steering (kinematic steering) and additional steer to compensate for the vehicle balance between front and rear axles (understeer and oversteer behaviour).
+
+- Definition of the Understeer Gradient:
