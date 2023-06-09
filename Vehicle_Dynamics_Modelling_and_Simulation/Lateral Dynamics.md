@@ -154,7 +154,7 @@ $$Y = x \cdot \sin(\Psi) + y \cdot \cos(\Psi)$$
 
 - Definition of the Understeer Gradient ($K_{US} \ [deg/ms^{-2}]$): $$\delta = \frac{L}{R} + K_{US} \cdot a_{y}$$
 
-$$K_{US} = \frac{\partial \delta}{\partial a_{y}} - \frac{\partial \delta _{ackermann}}{\partial a_{y}}$$
+$$K_{US} = \frac{\partial \delta}{\partial a_{y}} - \frac{\partial \delta_{ackermann}}{\partial a_{y}}$$
 
 - Considering the linearised bicycle model we have: 
 
