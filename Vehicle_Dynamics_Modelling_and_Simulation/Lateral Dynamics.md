@@ -201,3 +201,77 @@ $$K_{US} = (\frac{m \cdot l_r}{L \cdot C_{\alpha f}} - \frac{m \cdot l_f}{L \cdo
     - Lateral load transfer and roll stiffness distribution.
     - Application of driving or braking forces.
 
+### Critical & Characteristic Speed
+
+- For the constant radius test we can define the charactistic and critical speeds.
+
+![Characteristic and Critical Speed SSR](./Images/Characteristic_and_Critical_Speed.png)
+
+- Characteristic speed:
+    - For an understeer vehicle, the characteristic speed is defined as the speed at which the steering angle required is double the Ackermann angle. $$v_{char} = \sqrt{\frac{gL}{K_{US}}}$$
+
+- Critical speed:
+    - For an oversteer vehicle, the critical speed is defined as the speed at which the steering angle changes sign (the point at which the driver will be required to input counter-steer or opposite lock). At speeds greater than the critical speed the vehicle is unstable. $$v_{crit} = \sqrt{\frac{gL}{-K_{US}}}$$
+    - Recall that $K_{US}$ is the understeer gradient, and so for an oversteer vehicle this coefficient has a negative sign.
+
+- It is desirable for the characteristic or critical speed to be as large as possible. If an oversteer vehicle has a low critical speed then it will become difficult to control and therefore will not perform optimally.
+
+### Curvature Response Gain
+
+- For the constant radius test we can define the curvature response gain. $$\frac{1/R}{\delta} = \frac{1}{L + K_{US} \cdot \frac{V^2}{g}}$$
+
+![Curvature Response Gain SSR](./Images/Curvature_Response_Gain.png)
+
+- Neutral Vehicle ($K_{US} = 0$):
+    - Curvature is independent of speed.
+
+- Understeer Vehicle ($K_{US} > 0$):
+    - Curvature response gain decreases with speed.
+
+- Oversteer Vehicle ($K_{US} < 0$):
+    - Curvature response gain increases with speed and becomes infinite at $v_{crit}$ where the vehicle is spinning.
+
+### Yaw Rate Gain
+
+- For the constant radius test we can define the yaw rate gain. $$\frac{r}{\delta} = \frac{V}{L + K_{US} \cdot \frac{V^2}{g}}$$
+
+![Yaw Rate Gain SSR](./Images/Yaw_Rate_Gain.png)
+
+- Neutral Vehicle ($K_{US} = 0$):
+    - Yaw rate gain increases linearly with speed.
+
+- Understeer Vehicle ($K_{US} > 0$):
+    - Yaw rate gain increases with speed (at a decreasing rate) and reaches a maximum at $v_{char}$.
+
+- Oversteer Vehicle ($K_{US} < 0$):
+    - Yaw rate gain increases exponentially with speed and becomes infinite at $v_{crit}$.
+
+### Lateral Acceleration Gain
+
+- For the constant radius test we can define the lateral acceleration gain. $$\frac{a_{y}}{\delta} = \frac{V^2}{g \cdot L + K_{US} \cdot V^2}$$
+
+![Lateral Acceleration Gain SSR](./Images/Lateral_Acceleration_Gain.png)
+
+- Neutral Vehicle ($K_{US} = 0$):
+    - Lateral acceleration increases with the square of the speed.
+
+- Understeer Vehicle ($K_{US} > 0$):
+    - Lateral acceleration gain increases with speed and approaches a constant value asymptotically for large speeds.
+
+- Oversteer Vehicle ($K_{US} < 0$):
+    - Lateral acceleration gain increases with speed and becomes infinite at $v_{crit}$ where the vehicle is unstable and spinning.
+
+### Neutral Steer Point
+
+- The neutral seer point, NSP, is the point at which an external lateral force produces no yaw velocity, only lateral displacement. $$NSP = \frac{d}{L} = \frac{C_{\alpha r}}{C_{\alpha f} + C_{\alpha r}}$$
+
+    - Where d is the distance from the NSP to the front axle and $C_{\alpha}$ is the relevant axle cornering stiffness. 
+
+- It is important to consider the position of this on a vehicle when considering aerodynamic performance, as it is undesirable to position aerodynamic components in such a way that an external lateral force, such as wind, causes the vehicle to turn or rotate unpredictably.
+
+- The ratio of the distance between the NSP and the centre of mass (CoM or CoG) is defined as the Static Margin. $$SM = \frac{d - l_{f}}{L} = NSP - \frac{l_{f}}{L}$$
+
+    - Where d is the distance from the NSP to the front axle, and $l_{f}$ is the distance from the CoM to the front axle.
+
+## Transient Response
+
