@@ -152,4 +152,52 @@ $$Y = x \cdot \sin(\Psi) + y \cdot \cos(\Psi)$$
 
 - The steering input from a driver is a combination of Ackermann steering (kinematic steering) and additional steer to compensate for the vehicle balance between front and rear axles (understeer and oversteer behaviour).
 
-- Definition of the Understeer Gradient:
+- Definition of the Understeer Gradient ($K_{US} \ [deg/ms^{-2}]$): $$\delta = \frac{L}{R} + K_{US} \cdot a_{y}$$
+
+$$K_{US} = \frac{\partial \delta}{\partial a_{y}} - \frac{\partial \delta _{ackermann}}{\partial a_{y}}$$
+
+- Considering the linearised bicycle model we have: 
+
+$$K_{US} = (\frac{m \cdot l_r}{L \cdot C_{\alpha f}} - \frac{m \cdot l_f}{L \cdot C_{\alpha r}}) = (\frac{m_f}{C_{\alpha f}} - \frac{m_r}{C_{\alpha r}})$$
+
+- With:
+    - $m_f$ = Front axle mass.
+    - $m_r$ = Rear axle mass.
+    - $C_{\alpha f}$ = Front axle cornering stiffness.
+    - $C_{\alpha r}$ = Rear axle cornering stiffness.
+
+- Neutral Vehicle:
+    - $K_{US} = 0$
+    - $\alpha_{f} = \alpha_{r}$
+    - $m_{f}/C_{\alpha f} = m_{r}/C_{\alpha r}$
+
+    - The neutral vehicle setup allows the driver to maintain the steering input at a constant level to keep the cornering radius independently of the speed.
+    - This balance setup allows a driver to extract the most performance from a vehicle, as both axles reach the limit simultaneously.
+
+- Understeer Vehicle:
+    - $K_{US} > 0$
+    - $\alpha_{f} > \alpha_{r}$
+    - $m_{f}/C_{\alpha f} > m_{r}/C_{\alpha r}$
+
+    - The understeer bias vehicle setup requires the driver to increase the steering input as vehicle speed increases in order to maintain a constant turning radius.
+    - In this balance, the front axle is the limiting factor and the vehicle is easier to control, but is not reaching peak cornering performance.
+    - This balance is common in standard road cars.
+
+- Oversteer Vehicle:
+    - $K_{US} < 0$
+    - $\alpha_{f} < \alpha_{r}$
+    - $m_{f}/C_{\alpha f} < m_{r}/C_{\alpha r}$
+
+    - The oversteer bias vehicle setup requires the driver to reduce the steering input as vehicle speed increases in order to maintain a constant turning radius.
+    - In this balance, the rear axle is the limiting factor and the vehicle is harder to control with risk of spinning, but is not reaching peak cornering performance.
+
+- Factors effecting Understeer Gradient: $$K_{US} = (\frac{m_f}{C_{\alpha f}} - \frac{m_r}{C_{\alpha r}})$$ 
+    - Weight distribution.
+    - Axle cornering stiffness.
+        - Tyre cornering stiffness.
+        - Roll steer.
+        - Roll camber.
+        - Suspension compliance.
+    - Lateral load transfer and roll stiffness distribution.
+    - Application of driving or braking forces.
+
