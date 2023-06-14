@@ -275,3 +275,96 @@ $$K_{US} = (\frac{m \cdot l_r}{L \cdot C_{\alpha f}} - \frac{m \cdot l_f}{L \cdo
 
 ## Transient Response
 
+The transient response of a vehicle is the vehicle response to an input which does not keep it in a steady state condition.
+
+The linearised bicycle model equations can be re-written as:
+
+$$I \cdot \ddot{r} - c \cdot \dot{r} + k \cdot r = C_{1} \cdot \dot{\delta} + C_{2} \cdot \delta$$
+
+With:
+
+$$I = I$$
+
+$$c = -(l_{f}^{2} \cdot C_{\alpha f} + l_{r}^{2} \cdot C_{\alpha r}) + \frac{C_{\alpha f} + C_{\alpha r}}{m \cdot V}$$
+
+$$k = (l_{f} \cdot C_{\alpha f} - l_{r} \cdot C_{\alpha f}) + \frac{L^{2} \cdot C_{\alpha f} \cdot C_{\alpha r}}{m \cdot V^{2}}$$
+
+$$C_{1} = -C_{\alpha f} \cdot a$$
+
+$$C_{2} = \frac{-C_{\alpha f} \cdot (l_{f} \cdot C_{\alpha f} - l_{r} \cdot C_{\alpha f}) + (C_{\alpha f} + C_{\alpha r}) \cdot C_{\alpha f} \cdot l_{f}}{m \cdot V}$$
+
+Notice that this is analagous to a damped mass-spring system (with respect to the yaw rate), with the form $$F = m \cdot \ddot{x} + c \cdot \dot{x} + k \cdot x$$
+
+### Natural Frequency $\omega_{n}$
+
+- In the absence of any driving or damping force, the frequency at which a system tends to oscillate, is known as the natural frequency.
+
+- For a damped mass-spring system, the natural frequency is given by $$\omega_{n}^{2} = \frac{k}{m}$$
+
+- Considering the linearised bicycle model equations:
+
+$$\omega_{n}^{2} = \frac{C_{\alpha f} \cdot C_{\alpha r} \cdot L^{2}}{m^{2} \cdot k^{2}} \cdot \frac{1 + K_{US} \cdot V^{2}}{V^{2}}$$
+
+$$I = m \cdot k^{2}$$
+
+- With k being the radius of gyration.
+
+### Damping Ratio $\zeta$
+
+- The damping ratio is a measure of how oscillations in a system decay after a disturbance.
+
+- This parameter is therefore important in the application of high-performance vehicles, as it is a measure of fast the vehicle reaches the steady state condition following a transient input, and should be optimised to maximise (lateral) performance.
+
+- For a damped mass-spring system, the damping ratio is given by $$\zeta = \frac{c}{2\sqrt{k \cdot m}}$$
+
+- Consider the linearised bicycle model equations:
+
+$$\zeta = -\frac{1}{2 \cdot \omega_{n}} \cdot \frac{m \cdot (l_{f}^{2} \cdot C_{\alpha f} + l_{r}^{2} \cdot C_{\alpha r}) + m \cdot k^{2} \cdot (C_{\alpha f} + C_{\alpha r})}{m^{2} \cdot k^{2} \cdot V}$$
+
+$$\omega_{d} = \omega_{n} \cdot \sqrt{1 - \zeta^{2}}$$
+
+### Step Response
+
+A vehicle's yaw rate response is dependent on the damping ratio, and typically displays the following behaviours:
+
+- Underdamped ($\zeta < 1$):
+    - The vehicle oscillates (overshoots) before reaching the steady state.
+    - Understeer vehicles are underdamped at all speeds.
+
+- Critically damped ($\zeta = 1$):
+    - Fastest vehicle response without any overshoot or oscillations.
+    - Neutral steer vehicle are nearly critically damped at all speeds.
+
+- Overdamped ($\zeta > 1$):
+    - Slow vehicle response without overshoot or oscillations.
+    - Oversteer vehicles are overdamped at all speeds.
+
+![Step Steering Input Response](./Images/Step_Response_Damping.png)
+
+- In motorsport and especially Formula 1, it is desirable to achieve as close to critical damping as possible to achieve optimum performance, where the steady state is achieved as fast as possible and without oscillations.
+
+### Frequency Response
+
+- Consider a frequency sweep with constant amplitutde input for the steering angle. We can use this input to understand the vehicle response in relation to input frequency. Typically this is done up to a frequency of $5 Hz$ since it is uncommon to see anything greater than this in reality.
+
+- Yaw Rate Response:
+    - Vehicle exhibits a peak corresponding to the natural frequency.
+    - The yaw response delay (magnitude) increases around and after the resonance. 
+    - We want to minimise the reponse delay to maximise performance, so we will aim to design a vehicle with a natural frequency as high as possible!
+    - Ideal response is such that there is no dependence on the frequency of driver input, but this is unrealistic in practice.
+
+- Recall the natural frequency:
+
+$$\omega_{n}^{2} = \frac{C_{\alpha f} \cdot C_{\alpha r} \cdot L^{2}}{m^{2} \cdot k^{2}} \cdot \frac{1 + K_{US} \cdot V^{2}}{V^{2}}$$
+
+- In order to maximise the natural frequency of the vehicle we can design the following vehicle attributes:
+    - High cornering power (high stiffness with low mass); $\frac{C_{\alpha f} \cdot C_{\alpha r}}{m^{2}}$
+    - Long vehicle and low inertia; $\frac{L^{2}}{k^{2}}, (I = m \cdot k^{2})$
+    - Understeer-favoured vehicle (implies a higher natural frequency); $1 + K_{US} \cdot V^{2}$
+    - Note also that the natural frequency is speed dependent.
+
+- Lateral Acceleration Response:
+    - Vehicle response reduced at a certain frequency.
+    - Delay (magnitude) increased as the vehicle response is reduced.
+    - We want to minimise the response delay, so we once again design a vehicle in such a way as to maximise the natural frequency.
+    - Ideal reponse is such that the lateral acceleration response is independent of the driver input frequency.
