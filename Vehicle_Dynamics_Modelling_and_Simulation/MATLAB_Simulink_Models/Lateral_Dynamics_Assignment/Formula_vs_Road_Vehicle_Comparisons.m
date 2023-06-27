@@ -7,10 +7,15 @@
 %% Run this block after completing the simulation with the appropriate parameters for the road vehicle to save the output, and then comment out this line once again.
 
 %Road_Vehicle_Steady_State_40s = out
+%% 
+% Loading pre-saved simulation outputs:
+
+%load("Formula_SteadyState_20s.mat")
+%load("Road_Vehicle_SteadyState_40s.mat")
 %%
 plot(Formula_Steady_State_20s.SWA.Data, Formula_Steady_State_20s.latacc.Data);
 hold on
-P1 = plot(Road_Vehicle_Steady_State_40s.SWA.Data, Road_Vehicle_Steady_State_40s.latacc.Data);
+plot(Road_Vehicle_Steady_State_40s.SWA.Data, Road_Vehicle_Steady_State_40s.latacc.Data);
 xlabel("Steering Wheel Angle (deg)")
 ylabel("Lateral Acceleration m/s^2")
 title("LatAcc vs SWA Comparison for Formula vs Road Vehicle")
@@ -19,7 +24,7 @@ hold off
 
 plot(Formula_Steady_State_20s.latacc.Data, Formula_Steady_State_20s.SWA.Data);
 hold on
-P2 = plot(Road_Vehicle_Steady_State_40s.latacc.Data, Road_Vehicle_Steady_State_40s.SWA.Data);
+plot(Road_Vehicle_Steady_State_40s.latacc.Data, Road_Vehicle_Steady_State_40s.SWA.Data);
 ylabel("Steering Wheel Angle (deg)")
 xlabel("Lateral Acceleration m/s^2")
 title("SWA vs LatAcc Comparison for Formula vs Road Vehicle")
@@ -73,9 +78,22 @@ Kus_RoadV = (5 .* (1/20)) - ((2.8 / ((120/3.6)^2)) .* (180/pi))
 
 plot(Formula_Steady_State_20s.latacc.Data, Formula_Steady_State_20s.sideslip.Data);
 hold on
-P1 = plot(Road_Vehicle_Steady_State_40s.latacc.Data, Road_Vehicle_Steady_State_40s.sideslip.Data);
+plot(Road_Vehicle_Steady_State_40s.latacc.Data, Road_Vehicle_Steady_State_40s.sideslip.Data);
 ylabel("Side Slip (deg)")
 xlabel("Lateral Acceleration m/s^2")
 title("Side Slip vs LatAcc Comparison for Formula vs Road Vehicle")
 legend(["Formula Vehicle", "Road Vehicle"])
 hold off
+%% 
+% Comparing the trend of each line, we can clearly see the formula vehicle retains 
+% minimal side slip (magnitude) as the lateral acceleration increases, with a 
+% gradient of ~-0.1 deg / ms^-2. This means that the side slip increases in magnitude 
+% by 0.1 degree for each unit m/s^2 increase of lateral acceleration. In comparison, 
+% the road vehicle shows a steep increase in side slip angle magnitude for each 
+% unit lateral acceleration, with a gradient of ~-2.3 deg / ms^-2. Recalling that 
+% the vehicle sideslip angle is the angle offset between the direction of the 
+% wheel and the direction of motion of the vehicle, we expect this angle to be 
+% greater in an understeer scenario compared to a balanced or neutral vehicle 
+% setup, and so this outpur is as expected, since we already determined that the 
+% formula vehicle is extremely close to neutral, whereas the road vehicle has 
+% greater understeer ratio.
