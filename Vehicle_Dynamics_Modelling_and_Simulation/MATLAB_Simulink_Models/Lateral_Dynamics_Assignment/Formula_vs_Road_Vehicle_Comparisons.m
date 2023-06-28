@@ -1,17 +1,22 @@
+%% Steady State Response
 %% Comparing the SWA vs Lateral Acceleration response for each vehicle.
-
-%% Run this block after completing the simulation with the appropriate parameters for the formula vehicle to save the output, and then comment out this line once again.
+%% 
+% Run this line after completing the simulation with the appropriate parameters 
+% for the formula vehicle to save the output, and then comment out this line once 
+% again.
 
 %Formula_Steady_State_20s = out
-%%
-%% Run this block after completing the simulation with the appropriate parameters for the road vehicle to save the output, and then comment out this line once again.
+%% 
+% Run this line after completing the simulation with the appropriate parameters 
+% for the road vehicle to save the output, and then comment out this line once 
+% again.
 
 %Road_Vehicle_Steady_State_40s = out
 %% 
 % Loading pre-saved simulation outputs:
 
-%load("Formula_SteadyState_20s.mat")
-%load("Road_Vehicle_SteadyState_40s.mat")
+load("Formula_SteadyState_20s.mat")
+load("Road_Vehicle_SteadyState_40s.mat")
 %%
 plot(Formula_Steady_State_20s.SWA.Data, Formula_Steady_State_20s.latacc.Data);
 hold on
@@ -97,3 +102,23 @@ hold off
 % setup, and so this outpur is as expected, since we already determined that the 
 % formula vehicle is extremely close to neutral, whereas the road vehicle has 
 % greater understeer ratio.
+%% Step Steer Response
+%% Comparing Lateral Acceleration Overshoot
+%% 
+% Run this line after completing the simulation with the appropriate parameters 
+% for the formula vehicle to save the output, and then comment out this line once 
+% again.
+
+%Formula_Step_Steer_10s = out
+%% 
+% Run this line after completing the simulation with the appropriate parameters 
+% for the road vehicle to save the output, and then comment out this line once 
+% again.
+
+%Road_Vehicle_Step_Steer_10s = out
+%% 
+% Loading pre-saved simulation outputs:
+
+%load("Formula_StepSteer_10s.mat")
+%load("Road_Vehicle_StepSteer_10s.mat")
+%%
