@@ -119,6 +119,75 @@ hold off
 %% 
 % Loading pre-saved simulation outputs:
 
-%load("Formula_StepSteer_10s.mat")
-%load("Road_Vehicle_StepSteer_10s.mat")
+load("Formula_StepSteer_10s.mat")
+load("Road_Vehicle_StepSteer_10s.mat")
 %%
+plot(Formula_Step_Steer_10s.latacc.Time, Formula_Step_Steer_10s.latacc.Data);
+hold on
+plot(Road_Vehicle_Step_Steer_10s.latacc.Time, Road_Vehicle_Step_Steer_10s.latacc.Data);
+ylabel("Lateral Acceleration (m/s^2)")
+xlabel("Time (s)")
+title("Lateral Acceleration vs Time Comparison for Formula vs Road Vehicle (Step Steer)")
+legend(["Formula Vehicle", "Road Vehicle"])
+hold off
+%% Calculating the Lateral Acceleration Overshoot for each vehicle
+% Overshoot (%) = 100 .* [(Maximum Value - Steady State Value) / (Steady State 
+% Value)]
+
+LatAcc_Overshoot_FV = 100 .* ((max(Formula_Step_Steer_10s.latacc.Data) - Formula_Step_Steer_10s.latacc.Data(end)) / Formula_Step_Steer_10s.latacc.Data(end))
+LatAcc_Overshoot_RV = 100 .* ((max(Road_Vehicle_Step_Steer_10s.latacc.Data) - Road_Vehicle_Step_Steer_10s.latacc.Data(end)) / Road_Vehicle_Step_Steer_10s.latacc.Data(end))
+%% 
+% From the graph it is clear to see the road vehicle has a greater overshoot 
+% before settling to the steady state lateral acceleration value, which also takes 
+% longer than the formula vehicle. After 3s, when the steering input is applied 
+% (11 deg for the formula vehicle and 18 deg for the road vehicle) the formula 
+% vehicle reaches a localised maximum and minimum before increasing to the global 
+% maximum and steady state value. By appearance alone it is clear the formula 
+% vehicle has a much more aggresive response, while the road vehicle is smoother 
+% in its response to the step steer input, however, still showing localised maximum 
+% and minimum immediately after the input at 3s. The formula vehicle exhibits 
+% essentially no lateral acceleration overshoot (0.0005%) while the road vehicle 
+% overshoots by ~3% (2.9792%). This is expected, sine the performance and repsonsiveness 
+% of the formula vehicle should be greater than that of a road vehicle.
+%% Comparing Yaw Rate Overshoot
+
+plot(Formula_Step_Steer_10s.yawrate.Time, Formula_Step_Steer_10s.yawrate.Data);
+hold on
+plot(Road_Vehicle_Step_Steer_10s.yawrate.Time, Road_Vehicle_Step_Steer_10s.yawrate.Data);
+ylabel("Yaw Rate (deg/s)")
+xlabel("Time (s)")
+title("Yaw Rate vs Time Comparison for Formula vs Road Vehicle (Step Steer)")
+legend(["Formula Vehicle", "Road Vehicle"])
+hold off
+%% Calculating the Yaw Rate Overshoot for each vehicle
+% Overshoot (%) = 100 .* [(Maximum Value - Steady State Value) / (Steady State 
+% Value)]
+
+YawRate_Overshoot_FV = 100 .* ((max(Formula_Step_Steer_10s.yawrate.Data) - Formula_Step_Steer_10s.yawrate.Data(end)) / Formula_Step_Steer_10s.yawrate.Data(end))
+YawRate_Overshoot_RV = 100 .* ((max(Road_Vehicle_Step_Steer_10s.yawrate.Data) - Road_Vehicle_Step_Steer_10s.yawrate.Data(end)) / Road_Vehicle_Step_Steer_10s.yawrate.Data(end))
+%% 
+% From the graph it is clear to see the relative yaw rate overshoot is one again 
+% greater for the road vehicle than the formula vehicle. In addition, we can see 
+% that the time taken for the overshoot to settle to the steady state yaw rate 
+% value is longer for the road vehicle than the formula vehicle. With the formula 
+% vehicle yaw rate overshoot only ~1.2% (1.1642%) compared to the road vehicle's 
+% ~13.7% (13.6520%) it is clear that the performance of the formula vehicle is 
+% greater. This is further reflected by the time taken for the vehicle response 
+% to reach its steady state condition being significantly greater for the road 
+% vehicle compared to the formula vehicle.
+%% Comparing Response Time
+% Steady state yaw rate values assumed as 8.90 for FV and 5.47 for RV (2dp)
+
+%Indexing into the time data to find the times when the yaw rate is equal to the steady state value.
+
+FV_step_response_time_2dp = Formula_Step_Steer_10s.yawrate.time(round(Formula_Step_Steer_10s.yawrate.Data,2) == 8.90);
+FV_step_response_time = Formula_Step_Steer_10s.yawrate.time(round(Formula_Step_Steer_10s.yawrate.Data,5) == 8.89691);
+RV_step_response_time_2dp = Road_Vehicle_Step_Steer_10s.yawrate.time(round(Road_Vehicle_Step_Steer_10s.yawrate.Data,2) == 5.47);
+
+% Calculating the settling time for each vehicle.
+
+response_time_cats = categorical({'Formula Step Response Time (2dp)' 'Road Vehicle Step Response (2dp)'});
+response_times = [FV_step_response_time_2dp(1)-3, RV_step_response_time_2dp(2)-3];
+bar(response_time_cats,response_times)
+ylabel("Yaw Rate Response Time (s)")
+title("Vehicle Step Steer Yaw Rate Response Time Comparison (Time from Input to Steady State)")
