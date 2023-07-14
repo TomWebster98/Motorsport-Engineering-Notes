@@ -48,3 +48,15 @@ It is therefore clear to see that the maximum deceleration is dependent upon the
 
 ### Brake Balance
 
+To achieve the theoretical maximum deceleration of a vehicle, the braking system needs to be setup accordingly, that is, obtaining the correct ratio of front and rear braking forces. 
+
+- Considering the aerodynamic forces are significant, then the ideal braking ration becomes speed dependant, since the downforce and drag forces are speed dependent: $$\beta_{P} = \frac{(m \cdot g + F_{DF}) \cdot b - m \cdot h \cdot a_{x}}{(m \cdot g + F_{DF}) \cdot a + m \cdot h \cdot a_{x}}$$
+
+and $$a_{x-max} = -\mu \cdot \frac{(m \cdot g + F_{DF})}{m} - F_{drag}$$
+
+- Considering no aerodynamic forces, the ideal brake ratio is given as: $$\beta_{P} = \frac{F_{brake-f}}{F_{brake-r}} = \frac{\mu \cdot N_{f}}{\mu \cdot N_{r}} = \frac{b + \mu \cdot h}{a - \mu \cdot h}$$
+
+We can also consider the brake balance, defined as the ratio between the front axle braking force and the total braking force of the vehicle (both axles).
+
+- Brake balance: $$\beta_{balance} = \frac{F_{brake-f}}{F_{brake-f} + F_{brake-r}} = \frac{\beta_{P}}{\beta_{P} + 1}$$
+
