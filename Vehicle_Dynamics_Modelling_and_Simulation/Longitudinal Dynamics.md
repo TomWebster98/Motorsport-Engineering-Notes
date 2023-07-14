@@ -35,3 +35,16 @@ As the vehicle is braking, the transfer of load between the front and rear axles
 
 ### Maximum Deceleration
 
+The maximum deceleration is achieved when both the front and rear axles are at the traction limit. In high-performance motorsport application, it is desirable to achieve the maximum possible braking performance in the vehicle design and setup.
+
+- $F_{brake-f} = \mu \cdot N_{f}$
+- $F_{brake-r} = \mu \cdot N_{r}$
+
+With $\mu$ the coefficient of friction and N the normal force. Thus, the maximum deceleration can be calculated: $$a_{x-max} = -\mu \cdot \frac{(m \cdot g + F_{DF})}{m} - F_{drag}$$
+
+Considering a scenario with no aerodynamic effects, this simplifies to $$a_{x-max} = -\mu \cdot g$$
+
+It is therefore clear to see that the maximum deceleration is dependent upon the grip level, vehicle mass, and vehicle aerodynamics. Optimising these parameters to achieve high grip level, low mass, and high aerodynamic downforce while minimising drag will maximise the deceleration performance.
+
+### Brake Balance
+
