@@ -60,3 +60,27 @@ We can also consider the brake balance, defined as the ratio between the front a
 
 - Brake balance: $$\beta_{balance} = \frac{F_{brake-f}}{F_{brake-f} + F_{brake-r}} = \frac{\beta_{P}}{\beta_{P} + 1}$$
 
+### Brake Model
+
+The model of the braking system is such that the brake pedal position, resulting from the driver input, must be converted to the appropriate amount of front and rear brake torque, depending on the brake bias setup, each of which subsequently translates to front and rear tyre longitudinal force.
+
+Considering first the pedal position to brake torque conversion process, the following considerations are required:
+
+- The normalised brake pedal position, $Brake$, is given as an input. Consider no braking input = 0, and full braking input = 1.
+- The ratio of brake pedal displacement to braking torque $r_{brake}$.
+- The brake balance $\beta_{balance}$.
+
+Resulting in a front breaking torque of $$\Gamma_{brake-f} = Brake \cdot r_{brake} \cdot \beta_{balance}$$
+
+and rear braking torque $$\Gamma_{brake-r} = Brake \cdot r_{brake} \cdot (1 - \beta_{balance})$$
+
+Now considering the translation of the front and rear axle braking torque into front and rear tyre longitudinal braking forces:
+
+- For a wheel angular momentum $\Omega$ and inertia $I_{wheel}$, with wheel centre velocity $v_{x}$, the equilibrium of moments is given as $$F_{brake} \cdot r - \Gamma_{brake} = I_{wheel} \cdot \dot{\Omega}$$
+
+    - Note that r is the radius from contact patch to wheel centre, and that $F_{brake}$ will be in the negative x direction, as it acts against the direction of motion.
+
+- The tyre longitudinal force is dependent on the normal force N and the slip ratio $\kappa$.
+
+- Recall $\kappa = \frac{\Omega \cdot r - v_{x}}{v_{x}}$
+
