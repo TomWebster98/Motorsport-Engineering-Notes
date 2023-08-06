@@ -39,11 +39,11 @@ rpm_up = 13500; %Engine RPM for upshifting [rpm]
 rpm_down = 7000; %Engine RPM for downshifting [rpm]
 %% Tyre Parameters
 %Shape Factor
-C = 1.7180;
+C = 1.2421;
 %Stiffness Factor
-B = 4.1576;
+B = 5.7507;
 %Curvature Factor
-E = -22.1100;
+E = -6.8251;
 %Peak Value
 a1 = -1e-5;
 a2 = 1.25;
