@@ -115,3 +115,34 @@ As the vehicle is accelerating, the transfer of load between the front and rear 
 
 ### Powertrain Model
 
+Torque maps describe the relationship between the engine torque and the engine RPM. In general, for combustion engines, the torque increases with engine RPM up to a peak value (assuming maximum throttle input) before then decreasing. With 0% throttle input a negative engine torque, known as engine braking, is observed. The magnitude of this engine braking torque is greater at higher RPM. The maximum engine torque is achieved when the throttle input is at its maximum.
+
+A gearbox can be used to change the relative speed of the engine and the wheels in order to remain as close as possible to the optimum torque output.
+
+- Reduction Ratio (Gear Ratio): $i_{gear} = \frac{\omega_{in}}{\omega_{out}}, (i>1)$
+
+Here the input rotational speed is from the engine, and the output rotational speed is to the wheels.
+
+- Reduction of Engine Speed: $\omega_{wheel} = \frac{\omega_{engine}}{i_{gear}}$
+
+- Increase of Engine Torque: $\Gamma_{wheel} = \Gamma_{engine} \cdot i_{gear}$
+
+For an electric motor instead of a combustion engine, the torque curve is almost completely flat, meaning that the torque is approximately independent from the vehicle speed. This is an advantage of electric motors, as fewer gears are required to achieve optimal driving performance and torque output at the wheels.
+
+Throttle Position to Drive Torque:
+
+- Inputs include the throttle positon (0-1), wheel rotational speed ($\omega_{wheel}$) and gear position (1-8 for a formula 1 vehicle).
+
+- Engine RPM: Using $\omega_{wheel} \approx \frac{v}{r}$ we can determine RPM via $\omega_{engine} = \omega_{wheel} \cdot i_{gear}$
+
+- Engine Torque from the Engine Map: $\Gamma_{engine} = \Gamma(Throttle,RPM)$
+
+- Wheel Torque: $\Gamma_{wheel} = \Gamma_{engine} \cdot i_{gear}$
+
+Drive Torque to Tyre Force:
+
+- Moment Equilibrium: $\Gamma_{drive} - F_{drive} \cdot r = I_{wheel} \cdot \dot{\Omega}$
+
+- Tyre Longitudinal Force: $F_{drive} = F(\kappa,N)$
+
+- Slip Ratio: $\kappa = \frac{\Omega \cdot r - v_{x}}{v_{x}}, (\kappa>0)$
