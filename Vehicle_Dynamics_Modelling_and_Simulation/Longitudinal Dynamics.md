@@ -98,3 +98,20 @@ In order to obtain the equations of motion for driving performance in the longit
 
 - Equilibrium of moments and the centre of gravity $$-N_{f} \cdot a + N_{r} \cdot b - (F_{drive-r(\kappa_{r},N_{r})} - F_{drag}) \cdot h = 0$$
 
+### Load Transfer
+
+Verticle Load:
+
+- Front Axle: $$N_{f} = \frac{m \cdot g \cdot b}{L} + \frac{F_{DF} \cdot b}{L} - \Delta F_{z}$$
+
+- Rear Axle: $$N_{r} = \frac{m \cdot g \cdot a}{L} + \frac{F_{DF} \cdot a}{L} + \Delta F_{z}$$
+
+The first term in each equation corresponds to the static load (vehicle mass), with the second and third terms representing the aerodynamic downforce and load transfer respectively. This is equivalent to the vertical load described in the braking performance section.
+
+- Load Transfer: $$\Delta F_{z} = m \cdot a_{x} \cdot \frac{h}{L}$$ with
+$$a_{x} > 0$$
+
+As the vehicle is accelerating, the transfer of load between the front and rear axles is such that the front axle verticle load decreases, while the rear axle verticle load increases.
+
+### Powertrain Model
+
