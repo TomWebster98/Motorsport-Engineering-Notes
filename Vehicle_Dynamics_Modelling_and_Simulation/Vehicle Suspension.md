@@ -31,4 +31,10 @@ A spring is an elastic element that generates a force proportional to its compre
 
 ## Dampers
 
+A damper is a device that dampens the movement by generating a force proportional to the relative velocity between each end. $$F_{damper} = c \cdot \dot{x}$$
 
+- $c$ is the damping coefficient.
+
+- In a region of compression, low-speed and high-speed damping is observed. These are two distinct regions where the damping coefficient varies, the point at which the coefficient changes from low-speed damping to high-speed damping is known as the "knee point."
+
+    - Low-speed damping has a higher damping coefficient than high-speed damping. At low speed, it is favourable to have more support of the vehicle under braking for example, whereas at high speeds the reduced damping coefficient helps to isolate the vehicle from the road irregularities.
