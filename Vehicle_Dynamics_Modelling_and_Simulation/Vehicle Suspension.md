@@ -21,6 +21,14 @@ For a high performance vehicle like an F1 car, the comfort is unimportant, where
 
 ![Sprung and Unsprung Msss](./Images/Sprung_Unsprung_Mass.png)
 
-## Springs and Dampers
+## Springs
+
+A spring is an elastic element that generates a force proportional to its compression. $$F_{spring} = F_{0} + k \cdot \Delta x$$
+
+- $F_{0}$ is the "spring pre-load" - The force to overcome for the spring to act, this is used to adjust the ride height of a vehicle. This does not effect the stiffness of the system.
+- $k$ is the spring stiffness.
+- $\Delta x$ is the spring compression.
+
+## Dampers
 
 
