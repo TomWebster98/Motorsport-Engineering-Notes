@@ -38,3 +38,30 @@ A damper is a device that dampens the movement by generating a force proportiona
 - In a region of compression, low-speed and high-speed damping is observed. These are two distinct regions where the damping coefficient varies, the point at which the coefficient changes from low-speed damping to high-speed damping is known as the "knee point."
 
     - Low-speed damping has a higher damping coefficient than high-speed damping. At low speed, it is favourable to have more support of the vehicle under braking for example, whereas at high speeds the reduced damping coefficient helps to isolate the vehicle from the road irregularities.
+
+- In a region of extension, low-speed and high-speed damping is observed, similar to that in the compressive region. The magnitude of force under extension is greater than under compression, since the body of the vehicle helps to provide resistance against compression, whereas extension is only limited by the road against the wheels. High-extension damping can be used to counteract the extreme values of extension.
+
+## Installation Ratio
+
+The springs and dampers are typically not connected to the wheel centre, but instead connected to suspension links which are in turn connected to the wheel. The installation ratio is the ratio between the wheel and suspension vertical movement. For the spring and damper the installation ratio is as follows:
+
+$$IR_{spring} = \frac{z_{spring}}{z_{wheel}}$$
+
+$$IR_{damper} = \frac{z_{damper}}{z_{wheel}}$$
+
+The stiffness (or rate) at the wheel can be determined from the spring/damper coefficient and the installation ratio as follows:
+
+$$k_{wheel} = IR_{spring}^{2} \cdot k_{spring}$$
+
+$$c_{wheel} = IR_{damper}^{2} \cdot c_{damper}$$
+
+The spring and damper forces at the wheel can be determined as follows:
+
+$$F_{spring-wheel} = F_{0-wheel} + k_{wheel} \cdot z_{wheel}$$
+
+where $F_{0-wheel} = F_{0-suspension} \cdot IR$
+
+$$F_{damper-wheel} = c_{wheel} \cdot \dot{z_{wheel}}$$
+
+## Other Suspension Components
+
