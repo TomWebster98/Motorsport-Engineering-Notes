@@ -65,3 +65,20 @@ $$F_{damper-wheel} = c_{wheel} \cdot \dot{z_{wheel}}$$
 
 ## Other Suspension Components
 
+Anti-Roll Bar:
+
+- A device that increases the vehicle roll stiffness without modifying the vertical stiffness. $$\Gamma_{ARB} = k_{ARB} \cdot \theta$$
+
+- The left and right suspension are connected via a rocker and anti-roll bar assembly, causing the bar to twist during roll motion.
+
+Inerters (J-Dampers):
+
+- Device based on gears and a flywheel that generates a force proportional to the relative acceleration at each end. $$F_{inerter} = b \cdot \ddot{x}$$
+
+- Equivalent to having a system with an overall system that is reduced as the frequency increases. This is an advantage for vehicles with large aerodynamic effects.
+
+Bushings:
+
+- Flexible joints used to connect suspension links and the body.
+- Not often used in high performance applications as they add flexibility, and therefore add delay to the vehicle response (these applications prefer rigid ball-joints).
+- Used to improve the isolation of the vehicle body from the road irregularities, thus improving comfort.
