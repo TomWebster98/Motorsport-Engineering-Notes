@@ -39,3 +39,18 @@
 
 - This model requires the input of the road profile $z_{r}$.
 
+### Natural Frequency
+
+- The frequency at which a system tends to oscilate in the absence of external forces. $$\omega = 2 \pi f = \sqrt{\frac{k}{m}}$$
+
+- Ride Frequency (1Hz - 5Hz): $$f \approx \frac{1}{2 \pi} \sqrt{\frac{k_{spr}}{m_{s}}}$$
+
+- Wheel Hop Frequency: $$f \approx \frac{1}{2 \pi} \sqrt{\frac{k_{tyre} + k_{spr}}{m_{us}}}$$
+
+- The damping ratio is a measure of how oscillations within a system decay over time following a disturbance. $$\xi = \frac{c_{damper}}{c_{critical}}$$
+
+- The critical damping ratio can be defined as, $$c_{crit} = 2 \cdot \sqrt{k_{spr} \cdot m_{s}}$$
+
+- For a damping ratio equal to 1, it is said that the system is critically damped, while for a damping ratio less than 1, the system is underdamped - desirable for a vehicle. Road vehicles typically have a damping ratio between 0.05 and 0.25, while for performance and competition vehicles it is higher.
+
+- The damping ratio and natural frequency concepts are valuable starting points when designing a performance vehicle, and using the quarter car model the suspension stiffness can be tuned.
