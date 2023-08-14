@@ -57,6 +57,8 @@
 
 ## 4 Degrees of Freedom Model
 
+### Equations of Motion
+
 Coupling two quarter car models produces a 4 DoF model. This is the coupling of a quarter car model representing the front axle, and an equivalent quarter car model representing the rear axle.
 
 - As in the quarter car model, the unsprung mass equilibrium can be determined, applied to the front and rear axles in this case:
@@ -91,3 +93,10 @@ $$F_{spr,r} = F_{0,r} + k_{spr,r} \cdot (z_{us,r} - (z_{s} + \theta \cdot b))$$
 
 $$F_{damp,r} = c_{damp,r} \cdot (\dot{z}_{us,r} - (\dot{z}_{s} + \dot{\theta} \cdot b))$$
 
+### Ride Frequency
+
+- The ride frequency ratio is described by the relationship between the front and rear suspension ride frequencies.
+
+- For passenger vehicles, there is a preference to have a bounce motion instead of a pitching motion, and so the rear suspension ride frequency is typically higher than the front axle. Typically $f_{rear} \approx 1.2 \cdot f_{front}$
+
+- In high-performance vehicle applications, comfort is not a consideration as it is in passenger vehicles, so the ride frequency ratio is dictated by the aerodynamics of the vehicle.
