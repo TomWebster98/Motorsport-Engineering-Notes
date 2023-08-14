@@ -85,13 +85,13 @@ where a and b are the distance between the centre of gravity line and the front 
 
 $$F_{spr,f} = F_{0,f} + k_{spr,f} \cdot (z_{us,f} - (z_{s} - \theta \cdot a))$$
 
-$$F_{damp,f} = c_{damp,f} \cdot (\dot{z}_{us,f} - (\dot{z}_{s} - \dot{\theta} \cdot a))$$
+$$F_{damp,f} = c_{damp,f} \cdot (\dot{z_{us,f}} - (\dot{z_{s}} - \dot{\theta} \cdot a))$$
 
 - Rear Axle: 
 
 $$F_{spr,r} = F_{0,r} + k_{spr,r} \cdot (z_{us,r} - (z_{s} + \theta \cdot b))$$
 
-$$F_{damp,r} = c_{damp,r} \cdot (\dot{z}_{us,r} - (\dot{z}_{s} + \dot{\theta} \cdot b))$$
+$$F_{damp,r} = c_{damp,r} \cdot (\dot{z_{us,r}} - (\dot{z_{s}} + \dot{\theta} \cdot b))$$
 
 ### Ride Frequency
 
