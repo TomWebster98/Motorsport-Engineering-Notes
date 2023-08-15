@@ -54,3 +54,49 @@
 - For a damping ratio equal to 1, it is said that the system is critically damped, while for a damping ratio less than 1, the system is underdamped - desirable for a vehicle. Road vehicles typically have a damping ratio between 0.05 and 0.25, while for performance and competition vehicles it is higher.
 
 - The damping ratio and natural frequency concepts are valuable starting points when designing a performance vehicle, and using the quarter car model the suspension stiffness can be tuned.
+
+## 4 Degrees of Freedom Model
+
+### Equations of Motion
+
+Coupling two quarter car models produces a 4 DoF model. This is the coupling of a quarter car model representing the front axle, and an equivalent quarter car model representing the rear axle.
+
+- As in the quarter car model, the unsprung mass equilibrium can be determined, applied to the front and rear axles in this case:
+
+$$F_{tyre,f} - F_{spr,f} - F_{damp,f} - m_{us,f} \cdot g = m_{us,f} \cdot \ddot{z_{us,f}}$$
+
+$$F_{tyre,r} - F_{spr,r} - F_{damp,r} - m_{us,r} \cdot g = m_{us,r} \cdot \ddot{z_{us,r}}$$
+
+- The sprung mass vertical equilibrium can be given as:
+
+$$F_{spr,f} + F_{damp,f} + F_{spr,r} + F_{damp,r} - m_{s} \cdot g = m_{s} \cdot \ddot{z_{s}}$$
+
+- The sprung mass pitch equilibrium can also be determined by taking moments around the centre of gravity:
+
+$$-a \cdot (F_{spr,f} + F_{damp,f}) + b \cdot F_{spr,r} + F_{damp,r} = I_{s} \cdot \ddot{theta}$$
+
+where a and b are the distance between the centre of gravity line and the front and rear axles respectively. The angle $\theta$ is the pitch angle about the centre of mass as the rear of the vehicle is raised (positive) or lowered (negative).
+
+![4DOF Pitch Model](./Images/4DOF_Pitch_Model.png)
+
+- As the vehicle pitch movement raises the rear and lowers the front under braking, the front axle suspension is compressed, while the rear is extended. The spring-damper forces are therefore as follows:
+
+- Front Axle: 
+
+$$F_{spr,f} = F_{0,f} + k_{spr,f} \cdot (z_{us,f} - (z_{s} - \theta \cdot a))$$
+
+$$F_{damp,f} = c_{damp,f} \cdot (\dot{z_{us,f}} - (\dot{z_{s}} - \dot{\theta} \cdot a))$$
+
+- Rear Axle: 
+
+$$F_{spr,r} = F_{0,r} + k_{spr,r} \cdot (z_{us,r} - (z_{s} + \theta \cdot b))$$
+
+$$F_{damp,r} = c_{damp,r} \cdot (\dot{z_{us,r}} - (\dot{z_{s}} + \dot{\theta} \cdot b))$$
+
+### Ride Frequency
+
+- The ride frequency ratio is described by the relationship between the front and rear suspension ride frequencies.
+
+- For passenger vehicles, there is a preference to have a bounce motion instead of a pitching motion, and so the rear suspension ride frequency is typically higher than the front axle. Typically $f_{rear} \approx 1.2 \cdot f_{front}$
+
+- In high-performance vehicle applications, comfort is not a consideration as it is in passenger vehicles, so the ride frequency ratio is dictated by the aerodynamics of the vehicle.
