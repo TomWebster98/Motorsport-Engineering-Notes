@@ -1,5 +1,5 @@
 %% General
-g = 9.8; %m/s^2
+g = 9.81; %m/s^2
 
 %% Vehicle Parameters - Dimensions
 L = 3.5; %m
@@ -21,6 +21,9 @@ ms = m - (2*musr) - (2*musf); %kg (Sprung mass)
 Ixx = 300; %kgm^2
 Iyy = 1350; %kgm^2
 
+ms_front = ms*(b/L)*(1/2); %Front corner sprung mass
+ms_rear = ms*(a/L)*(1/2);  %Rear corner sprung mass
+
 %% Aerodynamics
 A = 1.25; %m^2
 cz = 1;
@@ -35,8 +38,14 @@ cdr = 1800; %Ns/m
 karbr = 1000; %Nm/rad
 ktyre = 400000; %N/m
 
-F0f = ms*g*(b/L)*(1/2);
-F0r = ms*g*(a/L)*(1/2);
+%F0f = ms*g*(b/L)*(1/2);
+%F0r = ms*g*(a/L)*(1/2);
 
-z0ft = (ms*(b/L)*(1/2) + musf)*(g/ktyre);
-z0rt = (ms*(a/L)*(1/2) + musr)*(g/ktyre);
+F0f = ms_front*g;
+F0r = ms_rear*g;
+
+%z0ft = (ms*(b/L)*(1/2) + musf)*(g/ktyre);
+%z0rt = (ms*(a/L)*(1/2) + musr)*(g/ktyre);
+
+z0ft = (ms_front + musf) * (g/ktyre);
+z0rt = (ms_rear + musr) * (g/ktyre);
